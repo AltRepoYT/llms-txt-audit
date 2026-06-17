@@ -26,8 +26,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://altrepo.net/dev/llms-txt-generator.html"
+Homepage = "https://altrepo.net/dev/llms-txt-generator.html"`r`nRepository = "https://github.com/AltRepoYT/llms-txt-audit"
 Specification = "https://llmstxt.org/"
 
 [project.scripts]
 llms-txt-audit = "llms_txt_audit.cli:main"
+
