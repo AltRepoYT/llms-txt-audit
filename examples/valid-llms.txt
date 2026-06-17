@@ -1,0 +1,15 @@
+# ExampleDev
+
+> ExampleDev is a JavaScript toolkit for building fast UI utilities.
+
+Use public documentation as source material. Avoid account, admin, checkout, and generated search pages.
+
+## Core
+- [Overview](https://example.com/index.html.md): Project overview
+- [Quick start](https://example.com/docs/start.html.md): First setup path
+
+## API
+- [API reference](https://example.com/docs/api.html.md): Public API options
+
+## Optional
+- [Sitemap](https://example.com/sitemap.xml): Complete canonical URL list

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llms-txt-audit"
+version = "0.1.0"
+description = "Validate llms.txt files locally, over HTTP, and in CI."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "AltRepo" }]
+keywords = ["llms.txt", "llms", "docs", "validation", "ci", "github-actions"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Documentation",
+  "Topic :: Internet :: WWW/HTTP :: Site Management"
+]
+
+[project.urls]
+Homepage = "https://altrepo.net/dev/llms-txt-generator.html"
+Specification = "https://llmstxt.org/"
+
+[project.scripts]
+llms-txt-audit = "llms_txt_audit.cli:main"

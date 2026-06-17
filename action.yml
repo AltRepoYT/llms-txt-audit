@@ -1,0 +1,48 @@
+name: "llms.txt Audit"
+description: "Validate an llms.txt file in GitHub Actions."
+author: "AltRepo"
+branding:
+  icon: "check-circle"
+  color: "blue"
+inputs:
+  target:
+    description: "Path, directory, /llms.txt URL, or site URL when discover is true."
+    required: false
+    default: "public/llms.txt"
+  discover:
+    description: "Treat target as a site root and read /llms.txt."
+    required: false
+    default: "false"
+  strict:
+    description: "Enable stricter validation."
+    required: false
+    default: "false"
+  require-optional:
+    description: "Warn when ## Optional is missing."
+    required: false
+    default: "false"
+  fail-on-warning:
+    description: "Fail the action when warnings are present."
+    required: false
+    default: "false"
+  no-relative-links:
+    description: "Warn when resource links are relative."
+    required: false
+    default: "false"
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+    - name: Audit llms.txt
+      shell: bash
+      run: |
+        args=("${{ inputs.target }}")
+        if [[ "${{ inputs.discover }}" == "true" ]]; then args+=("--discover"); fi
+        if [[ "${{ inputs.strict }}" == "true" ]]; then args+=("--strict"); fi
+        if [[ "${{ inputs.require-optional }}" == "true" ]]; then args+=("--require-optional"); fi
+        if [[ "${{ inputs.fail-on-warning }}" == "true" ]]; then args+=("--fail-on-warning"); fi
+        if [[ "${{ inputs.no-relative-links }}" == "true" ]]; then args+=("--no-relative-links"); fi
+        PYTHONPATH="$GITHUB_ACTION_PATH/src" python -m llms_txt_audit.cli "${args[@]}"

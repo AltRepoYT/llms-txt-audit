@@ -1,0 +1,17 @@
+name: Validate llms.txt
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  llms-txt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./llms-txt-audit
+        with:
+          target: public/llms.txt
+          strict: "true"
+          fail-on-warning: "true"
